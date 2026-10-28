@@ -2,8 +2,12 @@ from pathlib import Path
 from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
+with open("config.txt", "r") as f:
+    bias_path = f.readline().strip()
 
-bias_files = sorted(Path(r"C:\Users\Lenovo\AppData\Roaming\ASIImg\2026-10-21-Bias--1C").glob("bias_*.fit*"))
+bias_file = Path(bias_path)
+
+bias_files = sorted(Path(bias_path).glob("bias_*.fit*"))
 
 bias_stack = [fits.getdata(f) for f in bias_files]
 
@@ -26,4 +30,5 @@ header["COMBINED"] = True
 
 hdu = fits.PrimaryHDU(data=master_bias_data, header=header)
 
-hdu.writeto(Path(r"C:\Users\Lenovo\AppData\Roaming\ASIImg\2026-10-21-Bias--1C\Master_Bias.fits"), overwrite=True)
+hdu.writeto(Path(bias_path / "Master_Bias.fits"), overwrite=True)
+#komentarz
