@@ -30,5 +30,4 @@ header["COMBINED"] = True
 
 hdu = fits.PrimaryHDU(data=master_bias_data, header=header)
 
-hdu.writeto(Path(bias_path / "Master_Bias.fits"), overwrite=True)
-#komentarz
+hdu.writeto(Path(bias_path) / "master_bias.fits", overwrite=True)
