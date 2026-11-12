@@ -2,7 +2,7 @@ from pathlib import Path
 from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
-with open("config.txt", "r") as f:
+with open("paths.txt", "r") as f:
     bias_path = f.readline().strip()
 
 bias_file = Path(bias_path)

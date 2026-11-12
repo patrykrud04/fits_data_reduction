@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def get_path(line_number, config_file="config.txt"):
+def get_path(line_number, config_file="paths.txt"):
     with open(config_file, "r") as f:
         lines = f.readlines()
     if len(lines) >= line_number:
